@@ -42,7 +42,7 @@
             this.PS3MaskBox = new System.Windows.Forms.TextBox();
             this.XboxMaskLbl = new System.Windows.Forms.Label();
             this.PS3MaskLbl = new System.Windows.Forms.Label();
-            this.EncTypeDescLbl = new System.Windows.Forms.TextBox();
+            this.EncTypeDescBox = new System.Windows.Forms.TextBox();
             this.MaskErrorLbl = new System.Windows.Forms.Label();
             this.CorrectedPS3MaskBox = new System.Windows.Forms.TextBox();
             this.PatchMaskBtn = new System.Windows.Forms.Button();
@@ -206,16 +206,16 @@
             this.PS3MaskLbl.TabIndex = 13;
             this.PS3MaskLbl.Text = "PS3";
             // 
-            // EncTypeDescLbl
+            // EncTypeDescBox
             // 
-            this.EncTypeDescLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EncTypeDescLbl.Font = new System.Drawing.Font("Consolas", 10F);
-            this.EncTypeDescLbl.Location = new System.Drawing.Point(200, 39);
-            this.EncTypeDescLbl.Name = "EncTypeDescLbl";
-            this.EncTypeDescLbl.ReadOnly = true;
-            this.EncTypeDescLbl.Size = new System.Drawing.Size(68, 23);
-            this.EncTypeDescLbl.TabIndex = 14;
-            this.EncTypeDescLbl.Text = "HMX Forge";
+            this.EncTypeDescBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EncTypeDescBox.Font = new System.Drawing.Font("Consolas", 10F);
+            this.EncTypeDescBox.Location = new System.Drawing.Point(200, 39);
+            this.EncTypeDescBox.Name = "EncTypeDescBox";
+            this.EncTypeDescBox.ReadOnly = true;
+            this.EncTypeDescBox.Size = new System.Drawing.Size(68, 23);
+            this.EncTypeDescBox.TabIndex = 14;
+            this.EncTypeDescBox.Text = "HMX Forge";
             // 
             // MaskErrorLbl
             // 
@@ -353,7 +353,7 @@
             this.Controls.Add(this.PatchMaskBtn);
             this.Controls.Add(this.CorrectedPS3MaskBox);
             this.Controls.Add(this.MaskErrorLbl);
-            this.Controls.Add(this.EncTypeDescLbl);
+            this.Controls.Add(this.EncTypeDescBox);
             this.Controls.Add(this.PS3MaskLbl);
             this.Controls.Add(this.XboxMaskLbl);
             this.Controls.Add(this.PS3MaskBox);
@@ -399,7 +399,7 @@
         private System.Windows.Forms.TextBox PS3MaskBox;
         private System.Windows.Forms.Label XboxMaskLbl;
         private System.Windows.Forms.Label PS3MaskLbl;
-        private System.Windows.Forms.TextBox EncTypeDescLbl;
+        private System.Windows.Forms.TextBox EncTypeDescBox;
         private System.Windows.Forms.Label MaskErrorLbl;
         private System.Windows.Forms.TextBox CorrectedPS3MaskBox;
         private System.Windows.Forms.Button PatchMaskBtn;
