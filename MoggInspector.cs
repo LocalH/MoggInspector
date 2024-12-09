@@ -42,7 +42,7 @@ namespace MoggInspector
             if (files.Count() > 1)
                 throw new Exception(string.Format("more than one file dropped, one only!"));
 
-            MessageBox.Show(files[0]);
+            //MessageBox.Show(files[0]);
 
             string fileName = files[0];
 
@@ -57,7 +57,7 @@ namespace MoggInspector
                 }
             }
 
-            WindowLabel.Text = "Welcome to LocalH\'s MOGG Inspector! Drag and drop a single MOGG here to analize it.";
+            WindowLabel.Text = "Welcome to LocalH\'s MOGG Inspector! Drag and drop a single MOGG here to analyze it.";
             XboxIndexBox.Text = "";
             Ps3IndexBox.Text = "";
             magicBBox.Text = "";

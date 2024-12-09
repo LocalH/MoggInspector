@@ -258,9 +258,9 @@
             this.magicABox.Location = new System.Drawing.Point(66, 117);
             this.magicABox.Name = "magicABox";
             this.magicABox.ReadOnly = true;
-            this.magicABox.Size = new System.Drawing.Size(115, 23);
+            this.magicABox.Size = new System.Drawing.Size(60, 23);
             this.magicABox.TabIndex = 6;
-            this.magicABox.Text = "0123456789ABCDEF";
+            this.magicABox.Text = "01234567";
             // 
             // magicALBL
             // 
@@ -289,15 +289,15 @@
             this.magicBBox.Location = new System.Drawing.Point(66, 146);
             this.magicBBox.Name = "magicBBox";
             this.magicBBox.ReadOnly = true;
-            this.magicBBox.Size = new System.Drawing.Size(115, 23);
+            this.magicBBox.Size = new System.Drawing.Size(60, 23);
             this.magicBBox.TabIndex = 7;
-            this.magicBBox.Text = "0123456789ABCDEF";
+            this.magicBBox.Text = "01234567";
             // 
             // Ps3IndexLbl
             // 
             this.Ps3IndexLbl.AutoSize = true;
             this.Ps3IndexLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Ps3IndexLbl.Location = new System.Drawing.Point(200, 121);
+            this.Ps3IndexLbl.Location = new System.Drawing.Point(166, 121);
             this.Ps3IndexLbl.Name = "Ps3IndexLbl";
             this.Ps3IndexLbl.Size = new System.Drawing.Size(78, 15);
             this.Ps3IndexLbl.TabIndex = 23;
@@ -307,7 +307,7 @@
             // 
             this.Ps3IndexBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Ps3IndexBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.Ps3IndexBox.Location = new System.Drawing.Point(284, 119);
+            this.Ps3IndexBox.Location = new System.Drawing.Point(250, 119);
             this.Ps3IndexBox.Name = "Ps3IndexBox";
             this.Ps3IndexBox.ReadOnly = true;
             this.Ps3IndexBox.Size = new System.Drawing.Size(18, 23);
@@ -319,7 +319,7 @@
             // 
             this.XboxIndexLbl.AutoSize = true;
             this.XboxIndexLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.XboxIndexLbl.Location = new System.Drawing.Point(200, 150);
+            this.XboxIndexLbl.Location = new System.Drawing.Point(166, 150);
             this.XboxIndexLbl.Name = "XboxIndexLbl";
             this.XboxIndexLbl.Size = new System.Drawing.Size(77, 15);
             this.XboxIndexLbl.TabIndex = 25;
@@ -329,12 +329,13 @@
             // 
             this.XboxIndexBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.XboxIndexBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.XboxIndexBox.Location = new System.Drawing.Point(284, 148);
+            this.XboxIndexBox.Location = new System.Drawing.Point(250, 148);
             this.XboxIndexBox.Name = "XboxIndexBox";
             this.XboxIndexBox.ReadOnly = true;
             this.XboxIndexBox.Size = new System.Drawing.Size(18, 23);
             this.XboxIndexBox.TabIndex = 9;
             this.XboxIndexBox.Text = "11";
+            this.XboxIndexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // MoggInspector
             // 
