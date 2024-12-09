@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -85,18 +86,6 @@ namespace MoggInspector
             kc.DeriveKeys(MoggHeader, false);
             if (kc.Version > 11 && (!kc.IsC3Mogg && kc.KeymaskMismatch))
             {
-                kc.DeriveKeys(MoggHeader, true);
-                if (kc.XboxAesKey == kc.Ps3AesKey)
-                {
-                    MaskErrorLbl.Visible = true;
-                    MaskErrorLbl.Text = "RED KEY MOGG FOUND!\r\nSEND TO LOCAL H PLS";
-                    kc.KeymaskMismatch = false;
-                }
-                else
-                {
-                    kc.DeriveKeys(MoggHeader, false); //re-run green key derivation to reload those values for unknown non-red mismatches
-                }
-
             }
             if (kc.KeymaskMismatch)
             {
@@ -106,7 +95,20 @@ namespace MoggInspector
                 CorrectedPS3MaskBox.Text = BitConverter.ToString(kc.Ps3FixedMask).Replace("-", string.Empty);
                 Ps3MaskOffset = kc.Ps3MaskOffset;
                 Ps3FixedMask = kc.Ps3FixedMask;
+                kc.DeriveKeys(MoggHeader, true);
+                if (kc.XboxAesKey.SequenceEqual(kc.Ps3AesKey))
+                {
+                    MaskErrorLbl.Visible = true;
+                    MaskErrorLbl.Text = "RED KEY MOGG FOUND!\r\nSEND TO LOCAL H PLS";
+                    PatchMaskBtn.Visible = false;
+                    kc.KeymaskMismatch = false;
+                }
+                else
+                {
+                    kc.DeriveKeys(MoggHeader, false); //re-run green key derivation to reload those values for unknown non-red mismatches
+                }
             }
+
             switch (kc.Version)
             {
                 case 10:
@@ -223,7 +225,6 @@ namespace MoggInspector
             MaskErrorLbl.Visible = false;
             PatchMaskBtn.Visible = false;
             CorrectedPS3MaskBox.Visible = false;
-
         }
         private void PatchMaskBtn_Click(object sender, EventArgs e)
         {
