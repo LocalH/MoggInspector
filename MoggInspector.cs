@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,11 +18,15 @@ namespace MoggInspector
 {
     public partial class MoggInspector : Form
     {
+        uint Ps3MaskOffset;
+        byte[] Ps3FixedMask;
+
         public MoggInspector()
         {
             InitializeComponent();
             this.DragEnter += new DragEventHandler(this.MoggInspector_DragEnter);
             this.DragDrop += new DragEventHandler(this.MoggInspector_DragDrop);
+            PatchMaskBtn.Click += new EventHandler(this.PatchMaskBtn_Click);
         }
 
         private void MoggInspector_DragEnter(object sender, DragEventArgs e)
@@ -33,7 +38,6 @@ namespace MoggInspector
         {
             uint OggOffset = 0;
             byte[] MoggHeader;
-            bool RedKeyMogg = true;
             var dropped = (string[])e.Data.GetData(DataFormats.FileDrop);
             var files = dropped.ToList();
 
@@ -54,10 +58,11 @@ namespace MoggInspector
                     OggOffset = reader.ReadUInt32();
                     stream.Seek(0, SeekOrigin.Begin);
                     MoggHeader = reader.ReadBytes((int)(OggOffset));
+                    stream.Close();
                 }
             }
 
-            WindowLabel.Text = "Welcome to LocalH\'s MOGG Inspector! Drag and drop a single MOGG here to analyze it.";
+            WindowLabel.Text = files[0];
             XboxIndexBox.Text = "";
             Ps3IndexBox.Text = "";
             magicBBox.Text = "";
@@ -68,34 +73,46 @@ namespace MoggInspector
             XboxMaskBox.Text = "";
             EncSubVerBox.Text = "";
             NonceBox.Text = "";
-            AESKeyBox.Text = "";
+            PS3AESKeyBox.Text = "";
+            XboxAESKeyBox.Text = "";
             EncVerBox.Text = "";
             MaskErrorLbl.Visible = false;
+            MaskErrorLbl.Text = "Incorrect PS3 keymask found!\r\nCorrect PS3 keymask calculated.";
             PatchMaskBtn.Visible = false;
             CorrectedPS3MaskBox.Visible = false;
 
             var kc = new KeyChain();
             kc.DeriveKeys(MoggHeader, false);
-            if (!kc.IsC3Mogg & kc.KeymaskMismatch)  
+            if (kc.Version > 11 && (!kc.IsC3Mogg && kc.KeymaskMismatch))
             {
-                byte[] GreenFixedPs3Mask = kc.Ps3FixedMask;
                 kc.DeriveKeys(MoggHeader, true);
                 if (kc.XboxAesKey == kc.Ps3AesKey)
                 {
-                    RedKeyMogg = true;
-                    WindowLabel.Text = "RED KEY MOGG FOUND! SEND TO LOCAL H PLS";
-                    WindowLabel.ForeColor = Color.Red;
+                    MaskErrorLbl.Visible = true;
+                    MaskErrorLbl.Text = "RED KEY MOGG FOUND!\r\nSEND TO LOCAL H PLS";
+                    kc.KeymaskMismatch = false;
                 }
+                else
+                {
+                    kc.DeriveKeys(MoggHeader, false); //re-run green key derivation to reload those values for unknown non-red mismatches
+                }
+
             }
-            if (!RedKeyMogg & kc.KeymaskMismatch)
+            if (kc.KeymaskMismatch)
             {
                 MaskErrorLbl.Visible = true;
                 PatchMaskBtn.Visible = true;
                 CorrectedPS3MaskBox.Visible = true;
                 CorrectedPS3MaskBox.Text = BitConverter.ToString(kc.Ps3FixedMask).Replace("-", string.Empty);
+                Ps3MaskOffset = kc.Ps3MaskOffset;
+                Ps3FixedMask = kc.Ps3FixedMask;
             }
             switch (kc.Version)
             {
+                case 10:
+                    EncVerBox.Text = "10 (0x0A)";
+                    EncTypeDescBox.Text = "GH2/Unenc";
+                    break;
                 case 11:
                     if (kc.IsC3Mogg)
                     {
@@ -141,17 +158,23 @@ namespace MoggInspector
                     EncTypeDescBox.Text = "HMX Forge";
                     break;
                 default:
-                    EncVerBox.Text = String.Format("{0} ({0:X2}", kc.Version);
+                    EncVerBox.Text = String.Format("{0} (0x{0:X2})", kc.Version);
                     EncTypeDescBox.Text = "Unknown";
                     break;
             }
-            NonceBox.Text = BitConverter.ToString(kc.Nonce).Replace("-", string.Empty);
-            AESKeyBox.Text = BitConverter.ToString(kc.XboxAesKey).Replace("-", string.Empty);
+
+            if (kc.Version > 10)
+            {
+                NonceBox.Text = BitConverter.ToString(kc.Nonce).Replace("-", string.Empty);
+                PS3AESKeyBox.Text = BitConverter.ToString(kc.Ps3AesKey).Replace("-", string.Empty);
+                XboxAESKeyBox.Text = BitConverter.ToString(kc.XboxAesKey).Replace("-", string.Empty);
+            }
+
             if (kc.Version > 11)
             {
                 magicABox.Text = BitConverter.ToString(kc.MagicA).Replace("-", string.Empty);
                 magicBBox.Text = BitConverter.ToString(kc.MagicB).Replace("-", string.Empty);
-                XboxMaskBox.Text = BitConverter.ToString(kc.XboxMask).Replace("-", string.Empty);
+                XboxMaskBox.Text = BitConverter.ToString(kc.XboxMaskDec).Replace("-", string.Empty);
                 PS3MaskBox.Text = BitConverter.ToString(kc.Ps3Mask).Replace("-", string.Empty);
                 XboxIndexBox.Text = kc.XboxIndex.ToString();
                 Ps3IndexBox.Text = kc.Ps3Index.ToString();
@@ -194,7 +217,8 @@ namespace MoggInspector
             XboxMaskBox.Text = "";
             EncSubVerBox.Text = "";
             NonceBox.Text = "";
-            AESKeyBox.Text = "";
+            PS3AESKeyBox.Text = "";
+            XboxAESKeyBox.Text = "";
             EncVerBox.Text = "";
             MaskErrorLbl.Visible = false;
             PatchMaskBtn.Visible = false;
@@ -203,7 +227,24 @@ namespace MoggInspector
         }
         private void PatchMaskBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("MOGG patched for PS3 use...\n...if this was done");
+            string fileName = WindowLabel.Text; //gross hack I know but the label will always be set when this button is visible so it's ok
+
+            using (var stream = File.Open(fileName, FileMode.Open))
+            {
+                using (var writer = new BinaryWriter(stream))
+                {
+                    stream.Seek(Ps3MaskOffset, SeekOrigin.Begin);
+                    writer.Write(Ps3FixedMask);
+                    stream.Flush();
+                    stream.Close();
+                }
+            }
+
+            MaskErrorLbl.Text = "Incorrect PS3 keymask found!\r\nCorrect keymask now PATCHED.";
+            MaskErrorLbl.ForeColor = Color.Black;
+            PS3MaskBox.Text = BitConverter.ToString(Ps3FixedMask).Replace("-", string.Empty);
+            PatchMaskBtn.Visible = false;
         }
+
     }
 }

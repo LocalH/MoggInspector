@@ -31,8 +31,8 @@
             this.WindowLabel = new System.Windows.Forms.Label();
             this.EncVerBox = new System.Windows.Forms.TextBox();
             this.EncVerLabel = new System.Windows.Forms.Label();
-            this.AESKeyBox = new System.Windows.Forms.TextBox();
-            this.AESKeyLbl = new System.Windows.Forms.Label();
+            this.PS3AESKeyBox = new System.Windows.Forms.TextBox();
+            this.PS3AESKeyLbl = new System.Windows.Forms.Label();
             this.NonceBox = new System.Windows.Forms.TextBox();
             this.NonceLbl = new System.Windows.Forms.Label();
             this.EncSubVerLbl = new System.Windows.Forms.Label();
@@ -54,12 +54,14 @@
             this.Ps3IndexBox = new System.Windows.Forms.TextBox();
             this.XboxIndexLbl = new System.Windows.Forms.Label();
             this.XboxIndexBox = new System.Windows.Forms.TextBox();
+            this.XboxAESKeyBox = new System.Windows.Forms.TextBox();
+            this.XboxAESKeyLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // WindowLabel
             // 
             this.WindowLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WindowLabel.Location = new System.Drawing.Point(0, 10);
+            this.WindowLabel.Location = new System.Drawing.Point(0, 8);
             this.WindowLabel.Name = "WindowLabel";
             this.WindowLabel.Size = new System.Drawing.Size(599, 16);
             this.WindowLabel.TabIndex = 0;
@@ -71,7 +73,7 @@
             // 
             this.EncVerBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EncVerBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.EncVerBox.Location = new System.Drawing.Point(123, 39);
+            this.EncVerBox.Location = new System.Drawing.Point(123, 41);
             this.EncVerBox.Name = "EncVerBox";
             this.EncVerBox.ReadOnly = true;
             this.EncVerBox.Size = new System.Drawing.Size(68, 23);
@@ -83,38 +85,38 @@
             this.EncVerLabel.AutoSize = true;
             this.EncVerLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EncVerLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EncVerLabel.Location = new System.Drawing.Point(12, 41);
+            this.EncVerLabel.Location = new System.Drawing.Point(12, 43);
             this.EncVerLabel.Name = "EncVerLabel";
             this.EncVerLabel.Size = new System.Drawing.Size(105, 15);
             this.EncVerLabel.TabIndex = 2;
             this.EncVerLabel.Text = "Encryption version";
             // 
-            // AESKeyBox
+            // PS3AESKeyBox
             // 
-            this.AESKeyBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AESKeyBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.AESKeyBox.Location = new System.Drawing.Point(357, 39);
-            this.AESKeyBox.Name = "AESKeyBox";
-            this.AESKeyBox.ReadOnly = true;
-            this.AESKeyBox.Size = new System.Drawing.Size(230, 23);
-            this.AESKeyBox.TabIndex = 4;
-            this.AESKeyBox.Text = "0123456789ABCDEF0123456789ABCDEF";
+            this.PS3AESKeyBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PS3AESKeyBox.Font = new System.Drawing.Font("Consolas", 10F);
+            this.PS3AESKeyBox.Location = new System.Drawing.Point(357, 30);
+            this.PS3AESKeyBox.Name = "PS3AESKeyBox";
+            this.PS3AESKeyBox.ReadOnly = true;
+            this.PS3AESKeyBox.Size = new System.Drawing.Size(230, 23);
+            this.PS3AESKeyBox.TabIndex = 4;
+            this.PS3AESKeyBox.Text = "0123456789ABCDEF0123456789ABCDEF";
             // 
-            // AESKeyLbl
+            // PS3AESKeyLbl
             // 
-            this.AESKeyLbl.AutoSize = true;
-            this.AESKeyLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AESKeyLbl.Location = new System.Drawing.Point(303, 41);
-            this.AESKeyLbl.Name = "AESKeyLbl";
-            this.AESKeyLbl.Size = new System.Drawing.Size(48, 15);
-            this.AESKeyLbl.TabIndex = 4;
-            this.AESKeyLbl.Text = "AES key";
+            this.PS3AESKeyLbl.AutoSize = true;
+            this.PS3AESKeyLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PS3AESKeyLbl.Location = new System.Drawing.Point(282, 32);
+            this.PS3AESKeyLbl.Name = "PS3AESKeyLbl";
+            this.PS3AESKeyLbl.Size = new System.Drawing.Size(70, 15);
+            this.PS3AESKeyLbl.TabIndex = 4;
+            this.PS3AESKeyLbl.Text = "PS3 AES key";
             // 
             // NonceBox
             // 
             this.NonceBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NonceBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.NonceBox.Location = new System.Drawing.Point(357, 67);
+            this.NonceBox.Location = new System.Drawing.Point(357, 80);
             this.NonceBox.Name = "NonceBox";
             this.NonceBox.ReadOnly = true;
             this.NonceBox.Size = new System.Drawing.Size(230, 23);
@@ -125,7 +127,7 @@
             // 
             this.NonceLbl.AutoSize = true;
             this.NonceLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.NonceLbl.Location = new System.Drawing.Point(303, 69);
+            this.NonceLbl.Location = new System.Drawing.Point(309, 82);
             this.NonceLbl.Name = "NonceLbl";
             this.NonceLbl.Size = new System.Drawing.Size(42, 15);
             this.NonceLbl.TabIndex = 6;
@@ -136,7 +138,7 @@
             this.EncSubVerLbl.AutoSize = true;
             this.EncSubVerLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EncSubVerLbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EncSubVerLbl.Location = new System.Drawing.Point(12, 69);
+            this.EncSubVerLbl.Location = new System.Drawing.Point(12, 71);
             this.EncSubVerLbl.Name = "EncSubVerLbl";
             this.EncSubVerLbl.Size = new System.Drawing.Size(61, 15);
             this.EncSubVerLbl.TabIndex = 7;
@@ -146,7 +148,7 @@
             // 
             this.EncSubVerBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EncSubVerBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.EncSubVerBox.Location = new System.Drawing.Point(123, 67);
+            this.EncSubVerBox.Location = new System.Drawing.Point(123, 69);
             this.EncSubVerBox.Name = "EncSubVerBox";
             this.EncSubVerBox.ReadOnly = true;
             this.EncSubVerBox.Size = new System.Drawing.Size(145, 23);
@@ -156,7 +158,7 @@
             // KeymasksLbl
             // 
             this.KeymasksLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.KeymasksLbl.Location = new System.Drawing.Point(357, 101);
+            this.KeymasksLbl.Location = new System.Drawing.Point(357, 111);
             this.KeymasksLbl.Name = "KeymasksLbl";
             this.KeymasksLbl.Size = new System.Drawing.Size(230, 15);
             this.KeymasksLbl.TabIndex = 10;
@@ -167,7 +169,7 @@
             // 
             this.XboxMaskBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.XboxMaskBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.XboxMaskBox.Location = new System.Drawing.Point(357, 148);
+            this.XboxMaskBox.Location = new System.Drawing.Point(357, 158);
             this.XboxMaskBox.Name = "XboxMaskBox";
             this.XboxMaskBox.ReadOnly = true;
             this.XboxMaskBox.Size = new System.Drawing.Size(230, 23);
@@ -178,7 +180,7 @@
             // 
             this.PS3MaskBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PS3MaskBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.PS3MaskBox.Location = new System.Drawing.Point(357, 119);
+            this.PS3MaskBox.Location = new System.Drawing.Point(357, 129);
             this.PS3MaskBox.Name = "PS3MaskBox";
             this.PS3MaskBox.ReadOnly = true;
             this.PS3MaskBox.Size = new System.Drawing.Size(230, 23);
@@ -190,7 +192,7 @@
             this.XboxMaskLbl.AutoSize = true;
             this.XboxMaskLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.XboxMaskLbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.XboxMaskLbl.Location = new System.Drawing.Point(326, 148);
+            this.XboxMaskLbl.Location = new System.Drawing.Point(326, 160);
             this.XboxMaskLbl.Name = "XboxMaskLbl";
             this.XboxMaskLbl.Size = new System.Drawing.Size(25, 15);
             this.XboxMaskLbl.TabIndex = 12;
@@ -201,7 +203,7 @@
             this.PS3MaskLbl.AutoSize = true;
             this.PS3MaskLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PS3MaskLbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PS3MaskLbl.Location = new System.Drawing.Point(325, 121);
+            this.PS3MaskLbl.Location = new System.Drawing.Point(325, 131);
             this.PS3MaskLbl.Name = "PS3MaskLbl";
             this.PS3MaskLbl.Size = new System.Drawing.Size(26, 15);
             this.PS3MaskLbl.TabIndex = 13;
@@ -211,7 +213,7 @@
             // 
             this.EncTypeDescBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EncTypeDescBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.EncTypeDescBox.Location = new System.Drawing.Point(200, 39);
+            this.EncTypeDescBox.Location = new System.Drawing.Point(200, 41);
             this.EncTypeDescBox.Name = "EncTypeDescBox";
             this.EncTypeDescBox.ReadOnly = true;
             this.EncTypeDescBox.Size = new System.Drawing.Size(68, 23);
@@ -222,7 +224,7 @@
             // 
             this.MaskErrorLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaskErrorLbl.ForeColor = System.Drawing.Color.Red;
-            this.MaskErrorLbl.Location = new System.Drawing.Point(12, 184);
+            this.MaskErrorLbl.Location = new System.Drawing.Point(12, 186);
             this.MaskErrorLbl.Name = "MaskErrorLbl";
             this.MaskErrorLbl.Size = new System.Drawing.Size(179, 30);
             this.MaskErrorLbl.TabIndex = 15;
@@ -233,7 +235,7 @@
             // 
             this.CorrectedPS3MaskBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CorrectedPS3MaskBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.CorrectedPS3MaskBox.Location = new System.Drawing.Point(357, 190);
+            this.CorrectedPS3MaskBox.Location = new System.Drawing.Point(357, 192);
             this.CorrectedPS3MaskBox.Name = "CorrectedPS3MaskBox";
             this.CorrectedPS3MaskBox.ReadOnly = true;
             this.CorrectedPS3MaskBox.Size = new System.Drawing.Size(230, 23);
@@ -244,7 +246,7 @@
             // 
             this.PatchMaskBtn.AutoSize = true;
             this.PatchMaskBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PatchMaskBtn.Location = new System.Drawing.Point(233, 189);
+            this.PatchMaskBtn.Location = new System.Drawing.Point(233, 191);
             this.PatchMaskBtn.Name = "PatchMaskBtn";
             this.PatchMaskBtn.Size = new System.Drawing.Size(118, 25);
             this.PatchMaskBtn.TabIndex = 12;
@@ -255,7 +257,7 @@
             // 
             this.magicABox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.magicABox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.magicABox.Location = new System.Drawing.Point(66, 117);
+            this.magicABox.Location = new System.Drawing.Point(66, 127);
             this.magicABox.Name = "magicABox";
             this.magicABox.ReadOnly = true;
             this.magicABox.Size = new System.Drawing.Size(60, 23);
@@ -266,7 +268,7 @@
             // 
             this.magicALBL.AutoSize = true;
             this.magicALBL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.magicALBL.Location = new System.Drawing.Point(12, 119);
+            this.magicALBL.Location = new System.Drawing.Point(12, 129);
             this.magicALBL.Name = "magicALBL";
             this.magicALBL.Size = new System.Drawing.Size(48, 15);
             this.magicALBL.TabIndex = 19;
@@ -276,7 +278,7 @@
             // 
             this.magicBLbl.AutoSize = true;
             this.magicBLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.magicBLbl.Location = new System.Drawing.Point(12, 148);
+            this.magicBLbl.Location = new System.Drawing.Point(12, 158);
             this.magicBLbl.Name = "magicBLbl";
             this.magicBLbl.Size = new System.Drawing.Size(47, 15);
             this.magicBLbl.TabIndex = 21;
@@ -286,7 +288,7 @@
             // 
             this.magicBBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.magicBBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.magicBBox.Location = new System.Drawing.Point(66, 146);
+            this.magicBBox.Location = new System.Drawing.Point(66, 156);
             this.magicBBox.Name = "magicBBox";
             this.magicBBox.ReadOnly = true;
             this.magicBBox.Size = new System.Drawing.Size(60, 23);
@@ -297,7 +299,7 @@
             // 
             this.Ps3IndexLbl.AutoSize = true;
             this.Ps3IndexLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Ps3IndexLbl.Location = new System.Drawing.Point(166, 121);
+            this.Ps3IndexLbl.Location = new System.Drawing.Point(166, 131);
             this.Ps3IndexLbl.Name = "Ps3IndexLbl";
             this.Ps3IndexLbl.Size = new System.Drawing.Size(78, 15);
             this.Ps3IndexLbl.TabIndex = 23;
@@ -307,7 +309,7 @@
             // 
             this.Ps3IndexBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Ps3IndexBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.Ps3IndexBox.Location = new System.Drawing.Point(250, 119);
+            this.Ps3IndexBox.Location = new System.Drawing.Point(250, 129);
             this.Ps3IndexBox.Name = "Ps3IndexBox";
             this.Ps3IndexBox.ReadOnly = true;
             this.Ps3IndexBox.Size = new System.Drawing.Size(18, 23);
@@ -319,7 +321,7 @@
             // 
             this.XboxIndexLbl.AutoSize = true;
             this.XboxIndexLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.XboxIndexLbl.Location = new System.Drawing.Point(166, 150);
+            this.XboxIndexLbl.Location = new System.Drawing.Point(166, 160);
             this.XboxIndexLbl.Name = "XboxIndexLbl";
             this.XboxIndexLbl.Size = new System.Drawing.Size(77, 15);
             this.XboxIndexLbl.TabIndex = 25;
@@ -329,13 +331,34 @@
             // 
             this.XboxIndexBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.XboxIndexBox.Font = new System.Drawing.Font("Consolas", 10F);
-            this.XboxIndexBox.Location = new System.Drawing.Point(250, 148);
+            this.XboxIndexBox.Location = new System.Drawing.Point(250, 158);
             this.XboxIndexBox.Name = "XboxIndexBox";
             this.XboxIndexBox.ReadOnly = true;
             this.XboxIndexBox.Size = new System.Drawing.Size(18, 23);
             this.XboxIndexBox.TabIndex = 9;
             this.XboxIndexBox.Text = "11";
             this.XboxIndexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // XboxAESKeyBox
+            // 
+            this.XboxAESKeyBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.XboxAESKeyBox.Font = new System.Drawing.Font("Consolas", 10F);
+            this.XboxAESKeyBox.Location = new System.Drawing.Point(357, 52);
+            this.XboxAESKeyBox.Name = "XboxAESKeyBox";
+            this.XboxAESKeyBox.ReadOnly = true;
+            this.XboxAESKeyBox.Size = new System.Drawing.Size(230, 23);
+            this.XboxAESKeyBox.TabIndex = 26;
+            this.XboxAESKeyBox.Text = "0123456789ABCDEF0123456789ABCDEF";
+            // 
+            // XboxAESKeyLbl
+            // 
+            this.XboxAESKeyLbl.AutoSize = true;
+            this.XboxAESKeyLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.XboxAESKeyLbl.Location = new System.Drawing.Point(283, 54);
+            this.XboxAESKeyLbl.Name = "XboxAESKeyLbl";
+            this.XboxAESKeyLbl.Size = new System.Drawing.Size(69, 15);
+            this.XboxAESKeyLbl.TabIndex = 27;
+            this.XboxAESKeyLbl.Text = "360 AES key";
             // 
             // MoggInspector
             // 
@@ -344,14 +367,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(599, 225);
+            this.Controls.Add(this.XboxAESKeyLbl);
+            this.Controls.Add(this.XboxAESKeyBox);
             this.Controls.Add(this.WindowLabel);
             this.Controls.Add(this.EncVerLabel);
             this.Controls.Add(this.EncVerBox);
             this.Controls.Add(this.EncTypeDescBox);
             this.Controls.Add(this.EncSubVerBox);
             this.Controls.Add(this.EncSubVerLbl);
-            this.Controls.Add(this.AESKeyLbl);
-            this.Controls.Add(this.AESKeyBox);
+            this.Controls.Add(this.PS3AESKeyLbl);
+            this.Controls.Add(this.PS3AESKeyBox);
             this.Controls.Add(this.NonceLbl);
             this.Controls.Add(this.NonceBox);
             this.Controls.Add(this.magicALBL);
@@ -390,8 +415,8 @@
         private System.Windows.Forms.Label WindowLabel;
         private System.Windows.Forms.TextBox EncVerBox;
         private System.Windows.Forms.Label EncVerLabel;
-        private System.Windows.Forms.TextBox AESKeyBox;
-        private System.Windows.Forms.Label AESKeyLbl;
+        private System.Windows.Forms.TextBox PS3AESKeyBox;
+        private System.Windows.Forms.Label PS3AESKeyLbl;
         private System.Windows.Forms.TextBox NonceBox;
         private System.Windows.Forms.Label NonceLbl;
         private System.Windows.Forms.Label EncSubVerLbl;
@@ -413,6 +438,8 @@
         private System.Windows.Forms.TextBox Ps3IndexBox;
         private System.Windows.Forms.Label XboxIndexLbl;
         private System.Windows.Forms.TextBox XboxIndexBox;
+        private System.Windows.Forms.TextBox XboxAESKeyBox;
+        private System.Windows.Forms.Label XboxAESKeyLbl;
     }
 }
 
