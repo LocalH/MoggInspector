@@ -63,7 +63,8 @@
             this.WindowLabel.Name = "WindowLabel";
             this.WindowLabel.Size = new System.Drawing.Size(599, 16);
             this.WindowLabel.TabIndex = 0;
-            this.WindowLabel.Text = "Welcome to LocalH\'s MOGG Inspector! Drag and drop a MOGG here to analyze it.";
+            this.WindowLabel.Text = "Welcome to LocalH\'s MOGG Inspector! Drag and drop a single MOGG here to analyze i" +
+    "t.";
             this.WindowLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // EncVerBox
@@ -96,7 +97,7 @@
             this.AESKeyBox.Name = "AESKeyBox";
             this.AESKeyBox.ReadOnly = true;
             this.AESKeyBox.Size = new System.Drawing.Size(230, 23);
-            this.AESKeyBox.TabIndex = 3;
+            this.AESKeyBox.TabIndex = 4;
             this.AESKeyBox.Text = "0123456789ABCDEF0123456789ABCDEF";
             // 
             // AESKeyLbl
@@ -149,7 +150,7 @@
             this.EncSubVerBox.Name = "EncSubVerBox";
             this.EncSubVerBox.ReadOnly = true;
             this.EncSubVerBox.Size = new System.Drawing.Size(145, 23);
-            this.EncSubVerBox.TabIndex = 8;
+            this.EncSubVerBox.TabIndex = 3;
             this.EncSubVerBox.Text = "6 (Dance Central VR)";
             // 
             // KeymasksLbl
@@ -170,7 +171,7 @@
             this.XboxMaskBox.Name = "XboxMaskBox";
             this.XboxMaskBox.ReadOnly = true;
             this.XboxMaskBox.Size = new System.Drawing.Size(230, 23);
-            this.XboxMaskBox.TabIndex = 9;
+            this.XboxMaskBox.TabIndex = 11;
             this.XboxMaskBox.Text = "0123456789ABCDEF0123456789ABCDEF";
             // 
             // PS3MaskBox
@@ -181,7 +182,7 @@
             this.PS3MaskBox.Name = "PS3MaskBox";
             this.PS3MaskBox.ReadOnly = true;
             this.PS3MaskBox.Size = new System.Drawing.Size(230, 23);
-            this.PS3MaskBox.TabIndex = 11;
+            this.PS3MaskBox.TabIndex = 10;
             this.PS3MaskBox.Text = "0123456789ABCDEF0123456789ABCDEF";
             // 
             // XboxMaskLbl
@@ -214,7 +215,7 @@
             this.EncTypeDescBox.Name = "EncTypeDescBox";
             this.EncTypeDescBox.ReadOnly = true;
             this.EncTypeDescBox.Size = new System.Drawing.Size(68, 23);
-            this.EncTypeDescBox.TabIndex = 14;
+            this.EncTypeDescBox.TabIndex = 2;
             this.EncTypeDescBox.Text = "HMX Forge";
             // 
             // MaskErrorLbl
@@ -236,7 +237,7 @@
             this.CorrectedPS3MaskBox.Name = "CorrectedPS3MaskBox";
             this.CorrectedPS3MaskBox.ReadOnly = true;
             this.CorrectedPS3MaskBox.Size = new System.Drawing.Size(230, 23);
-            this.CorrectedPS3MaskBox.TabIndex = 16;
+            this.CorrectedPS3MaskBox.TabIndex = 13;
             this.CorrectedPS3MaskBox.Text = "0123456789ABCDEF0123456789ABCDEF";
             // 
             // PatchMaskBtn
@@ -246,7 +247,7 @@
             this.PatchMaskBtn.Location = new System.Drawing.Point(233, 189);
             this.PatchMaskBtn.Name = "PatchMaskBtn";
             this.PatchMaskBtn.Size = new System.Drawing.Size(118, 25);
-            this.PatchMaskBtn.TabIndex = 17;
+            this.PatchMaskBtn.TabIndex = 12;
             this.PatchMaskBtn.Text = "Patch PS3 keymask";
             this.PatchMaskBtn.UseVisualStyleBackColor = true;
             // 
@@ -258,7 +259,7 @@
             this.magicABox.Name = "magicABox";
             this.magicABox.ReadOnly = true;
             this.magicABox.Size = new System.Drawing.Size(115, 23);
-            this.magicABox.TabIndex = 18;
+            this.magicABox.TabIndex = 6;
             this.magicABox.Text = "0123456789ABCDEF";
             // 
             // magicALBL
@@ -289,7 +290,7 @@
             this.magicBBox.Name = "magicBBox";
             this.magicBBox.ReadOnly = true;
             this.magicBBox.Size = new System.Drawing.Size(115, 23);
-            this.magicBBox.TabIndex = 20;
+            this.magicBBox.TabIndex = 7;
             this.magicBBox.Text = "0123456789ABCDEF";
             // 
             // Ps3IndexLbl
@@ -310,7 +311,7 @@
             this.Ps3IndexBox.Name = "Ps3IndexBox";
             this.Ps3IndexBox.ReadOnly = true;
             this.Ps3IndexBox.Size = new System.Drawing.Size(18, 23);
-            this.Ps3IndexBox.TabIndex = 22;
+            this.Ps3IndexBox.TabIndex = 8;
             this.Ps3IndexBox.Text = "5";
             this.Ps3IndexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -332,7 +333,7 @@
             this.XboxIndexBox.Name = "XboxIndexBox";
             this.XboxIndexBox.ReadOnly = true;
             this.XboxIndexBox.Size = new System.Drawing.Size(18, 23);
-            this.XboxIndexBox.TabIndex = 24;
+            this.XboxIndexBox.TabIndex = 9;
             this.XboxIndexBox.Text = "11";
             // 
             // MoggInspector
@@ -342,32 +343,32 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(599, 225);
-            this.Controls.Add(this.XboxIndexLbl);
-            this.Controls.Add(this.XboxIndexBox);
-            this.Controls.Add(this.Ps3IndexLbl);
-            this.Controls.Add(this.Ps3IndexBox);
-            this.Controls.Add(this.magicBLbl);
-            this.Controls.Add(this.magicBBox);
-            this.Controls.Add(this.magicALBL);
-            this.Controls.Add(this.magicABox);
-            this.Controls.Add(this.PatchMaskBtn);
-            this.Controls.Add(this.CorrectedPS3MaskBox);
-            this.Controls.Add(this.MaskErrorLbl);
-            this.Controls.Add(this.EncTypeDescBox);
-            this.Controls.Add(this.PS3MaskLbl);
-            this.Controls.Add(this.XboxMaskLbl);
-            this.Controls.Add(this.PS3MaskBox);
-            this.Controls.Add(this.KeymasksLbl);
-            this.Controls.Add(this.XboxMaskBox);
-            this.Controls.Add(this.EncSubVerBox);
-            this.Controls.Add(this.EncSubVerLbl);
-            this.Controls.Add(this.NonceLbl);
-            this.Controls.Add(this.NonceBox);
-            this.Controls.Add(this.AESKeyLbl);
-            this.Controls.Add(this.AESKeyBox);
+            this.Controls.Add(this.WindowLabel);
             this.Controls.Add(this.EncVerLabel);
             this.Controls.Add(this.EncVerBox);
-            this.Controls.Add(this.WindowLabel);
+            this.Controls.Add(this.EncTypeDescBox);
+            this.Controls.Add(this.EncSubVerBox);
+            this.Controls.Add(this.EncSubVerLbl);
+            this.Controls.Add(this.AESKeyLbl);
+            this.Controls.Add(this.AESKeyBox);
+            this.Controls.Add(this.NonceLbl);
+            this.Controls.Add(this.NonceBox);
+            this.Controls.Add(this.magicALBL);
+            this.Controls.Add(this.magicABox);
+            this.Controls.Add(this.magicBLbl);
+            this.Controls.Add(this.magicBBox);
+            this.Controls.Add(this.Ps3IndexLbl);
+            this.Controls.Add(this.Ps3IndexBox);
+            this.Controls.Add(this.XboxIndexLbl);
+            this.Controls.Add(this.XboxIndexBox);
+            this.Controls.Add(this.KeymasksLbl);
+            this.Controls.Add(this.PS3MaskLbl);
+            this.Controls.Add(this.PS3MaskBox);
+            this.Controls.Add(this.XboxMaskLbl);
+            this.Controls.Add(this.XboxMaskBox);
+            this.Controls.Add(this.MaskErrorLbl);
+            this.Controls.Add(this.PatchMaskBtn);
+            this.Controls.Add(this.CorrectedPS3MaskBox);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

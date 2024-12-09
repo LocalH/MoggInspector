@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MoggInspectorLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Debug\net8.0-windows10.0.19041.0\MoggInspectorLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -66,6 +70,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="lib\Debug\net8.0-windows10.0.19041.0\MoggInspectorLib.deps.json" />
+    <None Include="lib\Debug\net8.0-windows10.0.19041.0\MoggInspectorLib.pri" />
+    <None Include="lib\Release\net8.0-windows10.0.19041.0\MoggInspectorLib.deps.json" />
+    <None Include="lib\Release\net8.0-windows10.0.19041.0\MoggInspectorLib.pri" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\Debug\net8.0-windows10.0.19041.0\MoggInspectorLib.dll" />
+    <Content Include="lib\Debug\net8.0-windows10.0.19041.0\MoggInspectorLib.pdb" />
+    <None Include="lib\Release\net8.0-windows10.0.19041.0\MoggInspectorLib.dll" />
+    <Content Include="lib\Release\net8.0-windows10.0.19041.0\MoggInspectorLib.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
