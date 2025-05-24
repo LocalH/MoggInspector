@@ -37,7 +37,7 @@ namespace MoggInspector
 
         private void MoggInspector_DragDrop(object sender, DragEventArgs e)
         {
-            uint OggOffset = 0;
+            uint OggOffset;
             byte[] MoggHeader;
             var dropped = (string[])e.Data.GetData(DataFormats.FileDrop);
             var files = dropped.ToList();
@@ -174,8 +174,8 @@ namespace MoggInspector
 
             if (kc.Version > 11)
             {
-                magicABox.Text = BitConverter.ToString(kc.MagicA).Replace("-", string.Empty);
-                magicBBox.Text = BitConverter.ToString(kc.MagicB).Replace("-", string.Empty);
+                magicABox.Text = BitConverter.ToString((kc.MagicA).Reverse().ToArray()).Replace("-", string.Empty);
+                magicBBox.Text = BitConverter.ToString((kc.MagicB).Reverse().ToArray()).Replace("-", string.Empty);
                 XboxMaskBox.Text = BitConverter.ToString(kc.XboxMaskDec).Replace("-", string.Empty);
                 PS3MaskBox.Text = BitConverter.ToString(kc.Ps3Mask).Replace("-", string.Empty);
                 XboxIndexBox.Text = kc.XboxIndex.ToString();

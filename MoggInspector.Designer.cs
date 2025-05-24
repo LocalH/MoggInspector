@@ -403,7 +403,7 @@
             this.Name = "MoggInspector";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MOGG Inspector v1.0 by LocalH";
+            this.Text = "MOGG Inspector v1.1 by LocalH";
             this.Load += new System.EventHandler(this.MoggInspector_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
