@@ -133,6 +133,11 @@ namespace MoggInspector
                         EncVerBox.Text = "12 (0x0C)";
                         EncTypeDescBox.Text = "C3 Old";
                     }
+                    else if (kc.IsNemoMogg)
+                    {
+                        EncVerBox.Text = "12 (0x0C)";
+                        EncTypeDescBox.Text = "Nemo";
+                    }
                     else
                     {
                         EncVerBox.Text = "12 (0x0C)";
@@ -141,7 +146,14 @@ namespace MoggInspector
                     break;
                 case 13:
                     EncVerBox.Text = "13 (0x0D)";
-                    EncTypeDescBox.Text = "C3 New";
+                    if (kc.IsNemoMogg)
+                    {
+                        EncTypeDescBox.Text = "Nemo";
+                    }
+                    else
+                    {
+                        EncTypeDescBox.Text = "C3 New";
+                    }
                     break;
                 case 14:
                     EncVerBox.Text = "14 (0x0E)";
