@@ -65,8 +65,8 @@
             this.WindowLabel.Name = "WindowLabel";
             this.WindowLabel.Size = new System.Drawing.Size(599, 16);
             this.WindowLabel.TabIndex = 0;
-            this.WindowLabel.Text = "Welcome to LocalH\'s MOGG Inspector! Drag and drop a single MOGG here to analyze i" +
-    "t.";
+            this.WindowLabel.Text = "Welcome to LocalH\'s MOGG Inspector v1.2! Drag and drop a single MOGG here to anal" +
+    "yze it.";
             this.WindowLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // EncVerBox
